@@ -12,7 +12,7 @@ const NavBar = () => {
   }
   
   return (
-    <nav className='relative flex justify-between py-5 px-2 md:px-6'>
+    <nav className='relative flex justify-between py-5 px-4 md:px-6 lg:px-60'>
       <div>
         <p>
           NmesomaHenry©
@@ -27,7 +27,7 @@ const NavBar = () => {
       <div className='md:hidden'>
           <MenuOpen  onClick = {() => handleClick()} className="fill-white h-6 w-6"/>
       </div>
-      <div className={`${openNav ? "absolute" : "hidden"} z-50 pt-[50%] bg-slate-900 opacity-70 h-[100vh] w-[100vw]`}>
+      <div className={`${openNav ? "absolute" : "hidden"} z-50 pt-[50%] bg-slate-900 opacity-90 h-[100vh] w-[100vw]`}>
         <MenuClose onClick = {() => handleClick()} className="fill-white h-10 w-10 absolute top-10 left-5"/>
         <ul className='flex flex-col items-center gap-8 text-3xl'>
           <li className="cursor-pointer">Home</li>
