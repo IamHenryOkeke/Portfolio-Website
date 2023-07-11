@@ -1,22 +1,40 @@
-import { ReactComponent as Profile } from '../../assets/svg/profile.svg'
-import { ReactComponent as Contact } from '../../assets/svg/contact.svg'
-import { ReactComponent as Skills } from '../../assets/svg/skills.svg'
-import { ReactComponent as Project } from '../../assets/svg/project.svg'
+// import { ReactComponent as Profile } from '../../assets/svg/profile.svg'
+// import { ReactComponent as Contact } from '../../assets/svg/contact.svg'
+import { ReactComponent as MenuClose } from '../../assets/svg/menuClose.svg'
+import { ReactComponent as MenuOpen } from '../../assets/svg/menuOpen.svg'
+
+import { useState } from "react"
 
 const NavBar = () => {
+  const [openNav, setOpenNav] = useState(false)
+  const handleClick = () => {
+    setOpenNav(!openNav)
+  }
+  
   return (
-    <nav className='flex flex-col gap-4 fixed top-[20vh]'>
-      <div className='cursor-pointer opacity-40 transition-all ease-in-out delay-150 py-1 w-10 hover:bg-slate-500 hover:w-40 hover:opacity-100 rounded duration-300'>
-        <Profile className="h-8 w-8"/>
+    <nav className='relative flex justify-between py-5 px-2 md:px-6'>
+      <div>
+        <p>
+          NmesomaHenry©
+        </p>
       </div>
-      <div className='cursor-pointer opacity-40 transition-all ease-in-out delay-150 py-1 w-10 hover:bg-slate-500 hover:w-40  hover:opacity-100 rounded duration-300'>
-        <Skills className="h-8 w-8"/>
+      <ul className='hidden md:flex gap-8'>
+        <li className="tracking-normal transition-all ease-in-out delay-150 hover:text-blue-500 hover:tracking-widest duration-300 cursor-pointer">Home</li>
+        <li className="tracking-normal transition-all ease-in-out delay-150 hover:text-blue-500 hover:tracking-widest duration-300 cursor-pointer">Skills and Tools</li>
+        <li className="tracking-normal transition-all ease-in-out delay-150 hover:text-blue-500 hover:tracking-widest duration-300 cursor-pointer">Projects</li>
+        <li className="tracking-normal transition-all ease-in-out delay-150 hover:text-blue-500 hover:tracking-widest duration-300 cursor-pointer">About</li>
+      </ul>
+      <div className='md:hidden'>
+          <MenuOpen  onClick = {() => handleClick()} className="fill-white h-6 w-6"/>
       </div>
-      <div className='cursor-pointer opacity-40 transition-all ease-in-out delay-150 py-1 w-10 hover:bg-slate-500 hover:w-40 hover:opacity-100 rounded duration-300'>
-        <Project className="h-8 w-8"/>
-      </div>
-      <div className='cursor-pointer opacity-40 transition-all ease-in-out delay-150 py-1 w-10 hover:bg-slate-500 hover:w-40 hover:opacity-100 rounded duration-300'>
-       <Contact className="h-8 w-8"/>
+      <div className={`${openNav ? "absolute" : "hidden"} z-50 pt-[50%] bg-slate-900 opacity-70 h-[100vh] w-[100vw]`}>
+        <MenuClose onClick = {() => handleClick()} className="fill-white h-10 w-10 absolute top-10 left-5"/>
+        <ul className='flex flex-col items-center gap-8 text-3xl'>
+          <li className="cursor-pointer">Home</li>
+          <li className="cursor-pointer">Skills and Tools</li>
+          <li className="cursor-pointer">Projects</li>
+          <li className="cursor-pointer">About</li>
+        </ul>
       </div>
     </nav>
   )
