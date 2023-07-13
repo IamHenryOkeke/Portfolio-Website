@@ -56,7 +56,6 @@ const ContactCard = ({twitterUrl, phone, portfolioUrl, linkedInUrl, emailAddress
 
 ContactCard.propTypes = {
     twitterUrl: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
     portfolioUrl : PropTypes.string.isRequired,
     phone: PropTypes.string.isRequired,
     linkedInUrl : PropTypes.string.isRequired,
